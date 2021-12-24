@@ -10,6 +10,7 @@ public class Weapon : Collidable
     public int weaponLevel = 0;
     private SpriteRenderer spriteRenderer;
 
+    private Animator anim;
     private float cooldown = 0.5f;
     private float lastSwing;
 
@@ -17,13 +18,14 @@ public class Weapon : Collidable
     {
         base.Start();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     protected override void Update()
     {
         base.Update();
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (Time.time - lastSwing > cooldown)
             {
@@ -46,12 +48,12 @@ public class Weapon : Collidable
                 pushForce = pushForce
             };
 
-            coll.SendMessage("Received damage", dmg);
+            coll.SendMessage("ReceiveDamage", dmg);
         }
     }
 
     private void Swing()
     {
-        Debug.Log("kapta");
+        anim.SetTrigger("Swing");
     }
 }
