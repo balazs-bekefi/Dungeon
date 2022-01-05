@@ -13,8 +13,8 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             Destroy(player.gameObject);
             Destroy(floatingTextManager.gameObject);
-            Destroy(hud);
             Destroy(menu);
+            Destroy(hud);
             return;
         }
 
@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     public Weapon weapon;
     public FloatingTextManager floatingTextManager;
     public RectTransform hitpointBar;
+    public Animator deathMenuAnim;
     public GameObject hud;
     public GameObject menu;
 
@@ -105,11 +106,19 @@ public class GameManager : MonoBehaviour
     public void OnLevelUp()
     {
         player.OnLevelUp();
+        OnHitpointChange();
     }
 
     public void OnSceneLoaded(Scene s,LoadSceneMode mode)
     {
         player.transform.position = GameObject.Find("SpawnPoint").transform.position;
+    }
+
+    public void Respawn()
+    {
+        deathMenuAnim.SetTrigger("Hide");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Main");
+        player.Respawn();
     }
 
     public void SaveState()
@@ -137,8 +146,5 @@ public class GameManager : MonoBehaviour
         player.SetLevel(GetCurrentLevel());
 
         weapon.SetWeaponLevel(int.Parse(data[3]));
-
-
-
     }
 }
