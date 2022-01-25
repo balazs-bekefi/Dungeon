@@ -32,7 +32,7 @@ public class Player : Mover
     {
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
-        if(isAlive)
+        if (isAlive)
             UpdateMotor(new Vector3(x, y, 0));
     }
 
@@ -63,7 +63,7 @@ public class Player : Mover
             hitpoint = maxHitpoint;
         if (hitpoint < maxHitpoint)
         {
-            hitpoint++;
+            hitpoint = hitpoint + healingAmount;
             GameManager.instance.OnHitpointChange();
             GameManager.instance.ShowText("+" + healingAmount.ToString() + "hp", 25, Color.green, transform.position, Vector3.up * 30, 1.0f);
         }
@@ -75,5 +75,6 @@ public class Player : Mover
         isAlive = true;
         lastImmune = Time.time;
         pushDirection = Vector3.zero;
+        GameManager.instance.OnHitpointChange();
     }
 }
