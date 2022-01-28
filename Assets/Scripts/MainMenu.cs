@@ -14,4 +14,10 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void SetQuality(int qualityIndex)
+    {
+        Debug.Log(qualityIndex);
+        QualitySettings.SetQualityLevel(qualityIndex);
+    }
 }
