@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -17,10 +18,10 @@ public class GameManager : MonoBehaviour
             Destroy(hud);
             return;
         }
-
         instance = this;
         SceneManager.sceneLoaded += LoadState;
         SceneManager.sceneLoaded += OnSceneLoaded;
+        
     }
 
     public List<Sprite> playerSprites;
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
 
     public int pesos;
     public int experience;
+
 
 
     public void ShowText(string msg, int fontSize, Color color, Vector3 position, Vector3 motion, float duration)
@@ -147,4 +149,5 @@ public class GameManager : MonoBehaviour
 
         weapon.SetWeaponLevel(int.Parse(data[3]));
     }
+
 }
