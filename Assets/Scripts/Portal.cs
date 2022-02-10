@@ -7,7 +7,7 @@ public class Portal : Collidable
     {
         if (coll.name == "Player")
         {
-            GameManager.instance.SaveState();
+            SaveSystem.SavePlayer(GameManager.instance);
             string sceneName = sceneNames[Random.Range(0, sceneNames.Length)];
             UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
         }

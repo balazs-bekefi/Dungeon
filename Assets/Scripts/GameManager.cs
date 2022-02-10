@@ -21,7 +21,13 @@ public class GameManager : MonoBehaviour
         instance = this;
         SceneManager.sceneLoaded += LoadState;
         SceneManager.sceneLoaded += OnSceneLoaded;
-        
+        AudioListener.volume= PlayerPrefs.GetFloat("musicVolume");
+        QualitySettings.SetQualityLevel(PlayerPrefs.GetInt("gameQuality"));
+    }
+
+    private void Start()
+    {
+        OnHitpointChange();
     }
 
     public List<Sprite> playerSprites;
@@ -41,7 +47,6 @@ public class GameManager : MonoBehaviour
 
     public int pesos;
     public int experience;
-
 
 
     public void ShowText(string msg, int fontSize, Color color, Vector3 position, Vector3 motion, float duration)
@@ -123,31 +128,18 @@ public class GameManager : MonoBehaviour
         player.Respawn();
     }
 
-    public void SaveState()
-    {
-        string s = "";
-
-        s += "0" + "|";
-        s += pesos.ToString() + "|";
-        s += experience.ToString() + "|";
-        s += weapon.weaponLevel.ToString();
-
-        PlayerPrefs.SetString("SaveState", s);
-    }
+    
     public void LoadState(Scene s, LoadSceneMode mode)
     {
+        PlayerData data = SaveSystem.LoadPlayer();
         SceneManager.sceneLoaded -= LoadState;
 
-        if (!PlayerPrefs.HasKey("SaveState"))
-            return;
-
-        string[] data = PlayerPrefs.GetString("SaveState").Split('|');
-
-        pesos = int.Parse(data[1]);
-        experience = int.Parse(data[2]);
+        
+        pesos = data.pesos;
+        experience = data.experience;
         player.SetLevel(GetCurrentLevel());
-
-        weapon.SetWeaponLevel(int.Parse(data[3]));
+        weapon.SetWeaponLevel(data.weaponLevel);
+        player.hitpoint = data.health;
     }
 
 }
