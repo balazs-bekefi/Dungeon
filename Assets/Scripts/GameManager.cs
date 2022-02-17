@@ -9,24 +9,25 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     private void Awake()
     {
+        SceneManager.sceneLoaded += LoadState;
         if (GameManager.instance != null)
         {
             Destroy(gameObject);
-            Destroy(player.gameObject);
             Destroy(floatingTextManager.gameObject);
             Destroy(menu);
             Destroy(hud);
+            Destroy(floatingTextManager);
+            
             return;
         }
         instance = this;
-        SceneManager.sceneLoaded += LoadState;
-        SceneManager.sceneLoaded += OnSceneLoaded;
         AudioListener.volume= PlayerPrefs.GetFloat("musicVolume");
         QualitySettings.SetQualityLevel(PlayerPrefs.GetInt("gameQuality"));
     }
 
     private void Start()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
         OnHitpointChange();
     }
 
@@ -34,8 +35,6 @@ public class GameManager : MonoBehaviour
     public List<Sprite> weaponSprites;
     public List<int> weaponPrices;
     public List<int> xpTable;
-
-
     public Player player;
     public Weapon weapon;
     public FloatingTextManager floatingTextManager;
@@ -44,10 +43,8 @@ public class GameManager : MonoBehaviour
     public GameObject hud;
     public GameObject menu;
 
-
     public int pesos;
     public int experience;
-
 
     public void ShowText(string msg, int fontSize, Color color, Vector3 position, Vector3 motion, float duration)
     {
@@ -118,7 +115,19 @@ public class GameManager : MonoBehaviour
 
     public void OnSceneLoaded(Scene s,LoadSceneMode mode)
     {
-        player.transform.position = GameObject.Find("SpawnPoint").transform.position;
+        PlayerData data = SaveSystem.LoadPlayer();
+        if (data.currentScene == SceneManager.GetActiveScene().name)
+        {
+            Debug.Log("if telejsül");
+            player.transform.position = new Vector3(data.position[0], data.position[1], data.position[2]);
+
+        }
+        else
+        {
+            player.transform.transform.position = GameObject.Find("SpawnPoint").transform.position;
+
+        }
+        hud.SetActive(true);
     }
 
     public void Respawn()
@@ -128,18 +137,37 @@ public class GameManager : MonoBehaviour
         player.Respawn();
     }
 
+    public string activeScene()
+    {
+        return SceneManager.GetActiveScene().name;
+    }
+
     
     public void LoadState(Scene s, LoadSceneMode mode)
     {
         PlayerData data = SaveSystem.LoadPlayer();
         SceneManager.sceneLoaded -= LoadState;
 
-        
+        Debug.Log(data.currentScene + " " + SceneManager.GetActiveScene().name);
         pesos = data.pesos;
         experience = data.experience;
         player.SetLevel(GetCurrentLevel());
         weapon.SetWeaponLevel(data.weaponLevel);
         player.hitpoint = data.health;
+
+        if (data.currentScene == SceneManager.GetActiveScene().name)
+        {
+            Debug.Log("if telejsül");
+            player.transform.position = new Vector3(data.position[0], data.position[1], data.position[2]);
+
+        }
+        else
+        {
+            Debug.Log("if nem teljesül"+ GameObject.Find("SpawnPoint").transform.position.ToString("F4"));
+           
+
+        }
+        
     }
 
 }

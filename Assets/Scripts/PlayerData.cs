@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class PlayerData
@@ -12,6 +13,7 @@ public class PlayerData
     public int gameQuality;
     public float musicVolume;
     public float[] position;
+    public string currentScene;
 
     public PlayerData (GameManager gameManager)
     {
@@ -21,6 +23,8 @@ public class PlayerData
         weaponLevel = gameManager.weapon.weaponLevel;
         gameQuality = PlayerPrefs.GetInt("gameQuality");
         musicVolume = PlayerPrefs.GetFloat("musicVolume");
+        currentScene = SceneManager.GetActiveScene().name;
+        currentScene = gameManager.activeScene();
 
         position = new float[3];
         position[0] = gameManager.player.transform.position.x;

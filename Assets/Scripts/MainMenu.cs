@@ -5,9 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    CharacterMenu menu;
+    GameObject HUD;
+    GameManager gameManager;
+    
+    public void Awake()
+    {
+        GameObject.Find("HUD").SetActive(false);
+        //menu.enabled = false;
+    }
+
     public void PlayGame()
     {
-        SceneManager.LoadScene("Main");
+        
+        PlayerData data = SaveSystem.LoadPlayer();
+        SceneManager.LoadScene(data.currentScene);
     }
 
     public void ExitGame()
