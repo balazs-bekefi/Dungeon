@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         SceneManager.sceneLoaded += LoadState;
+
         if (GameManager.instance != null)
         {
             Destroy(gameObject);
@@ -17,17 +18,24 @@ public class GameManager : MonoBehaviour
             Destroy(menu);
             Destroy(hud);
             Destroy(floatingTextManager);
-            
+            Debug.Log("elso");
             return;
         }
+        
         instance = this;
-        AudioListener.volume= PlayerPrefs.GetFloat("musicVolume");
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        AudioListener.volume = PlayerPrefs.GetFloat("musicVolume");
         QualitySettings.SetQualityLevel(PlayerPrefs.GetInt("gameQuality"));
     }
 
     private void Start()
     {
-        SceneManager.sceneLoaded += OnSceneLoaded;
+
+        DeactivateGameObjects();
+
+        PlayerData data = SaveSystem.LoadPlayer();
+        PlayerPrefs.SetString("mentes", data.currentScene);
+
         OnHitpointChange();
     }
 
@@ -49,6 +57,18 @@ public class GameManager : MonoBehaviour
     public void ShowText(string msg, int fontSize, Color color, Vector3 position, Vector3 motion, float duration)
     {
         floatingTextManager.Show(msg, fontSize, color, position, motion, duration);
+    }
+
+    public void ActivateGameObjects()
+    {
+        hud.SetActive(true);
+        floatingTextManager.gameObject.SetActive(true);
+    }
+
+    public void DeactivateGameObjects()
+    {
+        GameObject.Find("HUD").SetActive(false);
+        floatingTextManager.gameObject.SetActive(false);
     }
 
     public bool TryUpgradeWeapon()
@@ -113,27 +133,29 @@ public class GameManager : MonoBehaviour
         OnHitpointChange();
     }
 
-    public void OnSceneLoaded(Scene s,LoadSceneMode mode)
+    public void OnSceneLoaded(Scene s, LoadSceneMode mode)
     {
+        ActivateGameObjects();
+        player.transform.position = GameObject.Find("SpawnPoint").transform.position;
+        /*
         PlayerData data = SaveSystem.LoadPlayer();
-        if (data.currentScene == SceneManager.GetActiveScene().name)
+        if (data.currentScene == SceneManager.GetActiveScene().name && PlayerPrefs.GetString("test") == "saved")
         {
-            Debug.Log("if telejsül");
             player.transform.position = new Vector3(data.position[0], data.position[1], data.position[2]);
-
-        }
-        else
+            PlayerPrefs.DeleteKey("test");
+        }       
+        else if (!PlayerPrefs.HasKey("test"))
         {
-            player.transform.transform.position = GameObject.Find("SpawnPoint").transform.position;
-
+            player.transform.position = GameObject.Find("SpawnPoint").transform.position;
         }
-        hud.SetActive(true);
+        */
+
     }
 
     public void Respawn()
     {
         deathMenuAnim.SetTrigger("hide");
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("StartMenu");
         player.Respawn();
     }
 
@@ -142,32 +164,17 @@ public class GameManager : MonoBehaviour
         return SceneManager.GetActiveScene().name;
     }
 
-    
+
     public void LoadState(Scene s, LoadSceneMode mode)
     {
         PlayerData data = SaveSystem.LoadPlayer();
         SceneManager.sceneLoaded -= LoadState;
 
-        Debug.Log(data.currentScene + " " + SceneManager.GetActiveScene().name);
         pesos = data.pesos;
         experience = data.experience;
         player.SetLevel(GetCurrentLevel());
         weapon.SetWeaponLevel(data.weaponLevel);
         player.hitpoint = data.health;
-
-        if (data.currentScene == SceneManager.GetActiveScene().name)
-        {
-            Debug.Log("if telejsül");
-            player.transform.position = new Vector3(data.position[0], data.position[1], data.position[2]);
-
-        }
-        else
-        {
-            Debug.Log("if nem teljesül"+ GameObject.Find("SpawnPoint").transform.position.ToString("F4"));
-           
-
-        }
-        
     }
 
 }

@@ -5,19 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    CharacterMenu menu;
-    GameObject HUD;
-    GameManager gameManager;
-    
-    public void Awake()
-    {
-        GameObject.Find("HUD").SetActive(false);
-        //menu.enabled = false;
-    }
-
     public void PlayGame()
     {
-        
+        GameObject.Find("MainMenu").SetActive(false);
         PlayerData data = SaveSystem.LoadPlayer();
         SceneManager.LoadScene(data.currentScene);
     }

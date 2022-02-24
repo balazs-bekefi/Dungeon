@@ -3,29 +3,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Portal : Collidable
+public class LevelLoader : MonoBehaviour
 {
     public GameObject loadingScreen;
     public Slider slider;
-    private float cooldown = 3.0f;
-    private float lastLoad;
-
-    public string sceneName;
-    protected override void OnCollide(Collider2D coll)
-    {
-        if (coll.name == "Player" && Time.time - lastLoad > cooldown)
-        {
-            lastLoad = Time.time;
-            Debug.Log("asd");
-            LoadLevel();
-        }      
-    }
+    
     public void LoadLevel()
     {
-        StartCoroutine(LoadAsynchronously(sceneName));
+        GameObject.Find("MainMenu").SetActive(false);
+        GameObject.Find("Background").SetActive(false);
+        StartCoroutine(LoadAsynchronously(PlayerPrefs.GetString("mentes")));
     }
 
-    IEnumerator LoadAsynchronously(string sceneName)
+    IEnumerator LoadAsynchronously (string sceneName)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
         loadingScreen.SetActive(true);

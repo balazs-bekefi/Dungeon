@@ -14,6 +14,7 @@ public static class SaveSystem
 
         formatter.Serialize(stream, data);
         stream.Close();
+        PlayerPrefs.SetString("test", "saved");
     }
 
     public static PlayerData LoadPlayer()
