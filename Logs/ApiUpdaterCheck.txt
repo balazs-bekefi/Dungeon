@@ -88,3 +88,130 @@ C# parse time         : 241ms
 candidates check time : 37ms
 console write time    : 0ms
 
+[api-updater (non-obsolete-error-filter)] 2022. 03. 03. 11:23:30 : Starting F:/Unity/2020.3.18f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 1445,3907ms
+moved types parse time: 98ms
+candidates parse time : 3ms
+C# parse time         : 902ms
+candidates check time : 57ms
+console write time    : 11ms
+
+[api-updater (non-obsolete-error-filter)] 2022. 03. 03. 11:23:36 : Starting F:/Unity/2020.3.18f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 124,2601ms
+moved types parse time: 67ms
+candidates parse time : 1ms
+C# parse time         : 225ms
+candidates check time : 52ms
+console write time    : 0ms
+
+[api-updater (non-obsolete-error-filter)] 2022. 03. 03. 11:23:49 : Starting F:/Unity/2020.3.18f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 124ms
+moved types parse time: 66ms
+candidates parse time : 1ms
+C# parse time         : 244ms
+candidates check time : 51ms
+console write time    : 0ms
+
+[api-updater (non-obsolete-error-filter)] 2022. 03. 03. 13:09:48 : Starting F:/Unity/2020.3.18f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 124,4354ms
+moved types parse time: 68ms
+candidates parse time : 1ms
+C# parse time         : 237ms
+candidates check time : 50ms
+console write time    : 0ms
+
+[api-updater (non-obsolete-error-filter)] 2022. 03. 03. 17:07:50 : Starting F:/Unity/2020.3.18f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] Exception caught while loading types from F:\Unity\Dungeon\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll (some types may not be loaded)
+	Exception of type 'System.Reflection.ReflectionTypeLoadException' was thrown.
+	  at (wrapper managed-to-native) System.Reflection.Assembly.GetTypes(System.Reflection.Assembly,bool)
+  at System.Reflection.Assembly.GetTypes () [0x00000] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at APIUpdater.NonObsoleteApiUpdaterDetector.ExtraInfoParser+<LoadTypesWithMovedFromAttributeAsync>d__3.MoveNext () [0x000c8] in <68bff7873e0e4aa69a14dfc30bebbe3e>:0 
+	Could not load file or assembly 'UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies.
+
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 1438,7864ms
+moved types parse time: 67ms
+candidates parse time : 1ms
+C# parse time         : 910ms
+candidates check time : 53ms
+console write time    : 0ms
+
+[api-updater (non-obsolete-error-filter)] 2022. 03. 03. 17:57:19 : Starting F:/Unity/2020.3.18f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 202,0005ms
+moved types parse time: 63ms
+candidates parse time : 1ms
+C# parse time         : 245ms
+candidates check time : 36ms
+console write time    : 0ms
+
+[api-updater (non-obsolete-error-filter)] 2022. 03. 04. 10:03:51 : Starting F:/Unity/2020.3.18f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 1421,924ms
+moved types parse time: 82ms
+candidates parse time : 1ms
+C# parse time         : 970ms
+candidates check time : 36ms
+console write time    : 4ms
+
+[api-updater (non-obsolete-error-filter)] 2022. 03. 06. 12:55:30 : Starting F:/Unity/2020.3.18f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 1475,0731ms
+moved types parse time: 81ms
+candidates parse time : 15ms
+C# parse time         : 954ms
+candidates check time : 43ms
+console write time    : 3ms
+
+[api-updater (non-obsolete-error-filter)] 2022. 03. 06. 13:00:43 : Starting F:/Unity/2020.3.18f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 112,9969ms
+moved types parse time: 68ms
+candidates parse time : 1ms
+C# parse time         : 238ms
+candidates check time : 50ms
+console write time    : 0ms
+
+[api-updater (non-obsolete-error-filter)] 2022. 03. 06. 13:01:12 : Starting F:/Unity/2020.3.18f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 115,9863ms
+moved types parse time: 66ms
+candidates parse time : 1ms
+C# parse time         : 231ms
+candidates check time : 43ms
+console write time    : 0ms
+
+[api-updater (non-obsolete-error-filter)] 2022. 03. 06. 13:05:05 : Starting F:/Unity/2020.3.18f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 123,0167ms
+moved types parse time: 72ms
+candidates parse time : 1ms
+C# parse time         : 254ms
+candidates check time : 55ms
+console write time    : 0ms
+
+[api-updater (non-obsolete-error-filter)] 2022. 03. 06. 13:08:08 : Starting F:/Unity/2020.3.18f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 110,8784ms
+moved types parse time: 63ms
+candidates parse time : 1ms
+C# parse time         : 255ms
+candidates check time : 53ms
+console write time    : 0ms
+

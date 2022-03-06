@@ -12,6 +12,7 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameManager.instance.recentlyPlayedTime = Time.time;
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if(GameIsPaused)

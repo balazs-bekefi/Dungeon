@@ -18,8 +18,8 @@ public class GameManager : MonoBehaviour
             Destroy(menu);
             Destroy(hud);
             Destroy(floatingTextManager);
-            Debug.Log("elso");
             return;
+            
         }
         
         instance = this;
@@ -53,6 +53,8 @@ public class GameManager : MonoBehaviour
 
     public int pesos;
     public int experience;
+    public float playedTime;
+    public float recentlyPlayedTime;
 
     public void ShowText(string msg, int fontSize, Color color, Vector3 position, Vector3 motion, float duration)
     {
@@ -175,6 +177,7 @@ public class GameManager : MonoBehaviour
         player.SetLevel(GetCurrentLevel());
         weapon.SetWeaponLevel(data.weaponLevel);
         player.hitpoint = data.health;
+        playedTime = data.playedTime;
     }
 
 }

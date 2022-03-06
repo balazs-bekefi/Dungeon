@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3799668804121933305}
   - component: {fileID: 3799668804121933304}
   - component: {fileID: 3799668804121933307}
+  - component: {fileID: 3799668802941938796}
   m_Layer: 0
   m_Name: Save
   m_TagString: Untagged
@@ -136,5 +137,18 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  save: {fileID: 3799668802941938796}
   message: Press "E" to Save your game!
   savedMessage: Game saved!
+--- !u!114 &3799668802941938796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3799668804121933306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dda38de289aa6ec4993b5a020b2ba406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

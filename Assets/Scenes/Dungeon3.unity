@@ -22017,6 +22017,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoadBetweenLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 1239615558775010765, guid: a9738055b89414141a6174ecb810342a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1239615558910611944, guid: a9738055b89414141a6174ecb810342a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9738055b89414141a6174ecb810342a, type: 3}
 --- !u!114 &1833472956 stripped

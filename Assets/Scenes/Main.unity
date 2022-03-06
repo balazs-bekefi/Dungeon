@@ -11643,7 +11643,8 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  message: Hy new player!
+  message: 'Hy '
+  message1: ', whatts up?'
 --- !u!1001 &1239615558821679359
 PrefabInstance:
   m_ObjectHideFlags: 0

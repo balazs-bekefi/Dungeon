@@ -14,6 +14,7 @@ public class PlayerData
     public float musicVolume;
     public float[] position;
     public string currentScene;
+    public float playedTime;
 
     public PlayerData (GameManager gameManager)
     {
@@ -25,6 +26,7 @@ public class PlayerData
         musicVolume = PlayerPrefs.GetFloat("musicVolume");
         currentScene = SceneManager.GetActiveScene().name;
         currentScene = gameManager.activeScene();
+        playedTime = gameManager.playedTime+gameManager.recentlyPlayedTime;
 
         position = new float[3];
         position[0] = gameManager.player.transform.position.x;

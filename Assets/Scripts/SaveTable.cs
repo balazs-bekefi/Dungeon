@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SaveTable : Collidable
 {
+    public SaveToDatabase save;
     public string message;
     public string savedMessage;
 
@@ -25,8 +26,9 @@ public class SaveTable : Collidable
         }
         if (coll.name == "Player" && Input.GetKeyDown(KeyCode.E))
         {
+            save.Start();
             SaveSystem.SavePlayer(GameManager.instance);
-            GameManager.instance.ShowText(savedMessage, 35, Color.green, new Vector3(1F, 1F, 0), Vector3.zero, 3f);
+            GameManager.instance.ShowText(savedMessage, 35, Color.green, new Vector3(0, 0.16f, 0), Vector3.zero, 3f);
         }
     }
 }
