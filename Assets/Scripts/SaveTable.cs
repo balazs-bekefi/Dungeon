@@ -26,7 +26,7 @@ public class SaveTable : Collidable
         }
         if (coll.name == "Player" && Input.GetKeyDown(KeyCode.E))
         {
-            save.Start();
+            save.Save();
             SaveSystem.SavePlayer(GameManager.instance);
             GameManager.instance.ShowText(savedMessage, 35, Color.green, new Vector3(0, 0.16f, 0), Vector3.zero, 3f);
         }

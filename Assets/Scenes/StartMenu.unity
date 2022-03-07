@@ -1747,6 +1747,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5393397327736509673, guid: 6f5345b5d1866bf4aa6ddb680fdd3a40, type: 3}
+      propertyPath: hitpoint
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393397327736509673, guid: 6f5345b5d1866bf4aa6ddb680fdd3a40, type: 3}
+      propertyPath: maxHitpoint
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5393397327736509675, guid: 6f5345b5d1866bf4aa6ddb680fdd3a40, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -3657,6 +3665,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4743294730822467404, guid: 75a358cada66dfc4abf73b12079fd8cb, type: 3}
+      propertyPath: asd
+      value: 
+      objectReference: {fileID: 1521654691}
+    - target: {fileID: 4743294730822467404, guid: 75a358cada66dfc4abf73b12079fd8cb, type: 3}
       propertyPath: hud
       value: 
       objectReference: {fileID: 302742249}
@@ -3680,6 +3692,10 @@ PrefabInstance:
       propertyPath: deathMenuAnim
       value: 
       objectReference: {fileID: 302742247}
+    - target: {fileID: 4743294730822467404, guid: 75a358cada66dfc4abf73b12079fd8cb, type: 3}
+      propertyPath: dataFromDatabase
+      value: 
+      objectReference: {fileID: 1521654691}
     - target: {fileID: 4743294730822467404, guid: 75a358cada66dfc4abf73b12079fd8cb, type: 3}
       propertyPath: floatingTextManager
       value: 
@@ -3734,6 +3750,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75a358cada66dfc4abf73b12079fd8cb, type: 3}
+--- !u!1 &1521654690 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4743294730822467407, guid: 75a358cada66dfc4abf73b12079fd8cb, type: 3}
+  m_PrefabInstance: {fileID: 1521654689}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1521654691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521654690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 489fabe5a1f55b846baa1b9cfc349a37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  pesos: 0
+  experience: 0
+  weaponLevel: 0
+  gameQuality: 0
+  musicVolume: 0
+  currentScene: 
+  playedTime: 0
 --- !u!1 &1544176715
 GameObject:
   m_ObjectHideFlags: 0

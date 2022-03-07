@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public GetDataFromDatabase dataFromDatabase;
     private void Awake()
     {
         SceneManager.sceneLoaded += LoadState;
@@ -26,15 +27,22 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
         AudioListener.volume = PlayerPrefs.GetFloat("musicVolume");
         QualitySettings.SetQualityLevel(PlayerPrefs.GetInt("gameQuality"));
+        
     }
-
+    
     private void Start()
     {
 
         DeactivateGameObjects();
-
-        PlayerData data = SaveSystem.LoadPlayer();
-        PlayerPrefs.SetString("mentes", data.currentScene);
+        pesos = dataFromDatabase.pesos;
+        experience = dataFromDatabase.experience;
+        player.SetLevel(GetCurrentLevel());
+        weapon.SetWeaponLevel(dataFromDatabase.weaponLevel);
+        player.hitpoint = dataFromDatabase.health;
+        playedTime = dataFromDatabase.playedTime;
+        Debug.Log(dataFromDatabase.currentScene);
+        AudioListener.volume = dataFromDatabase.musicVolume;
+        QualitySettings.SetQualityLevel(dataFromDatabase.gameQuality);
 
         OnHitpointChange();
     }
@@ -50,7 +58,7 @@ public class GameManager : MonoBehaviour
     public Animator deathMenuAnim;
     public GameObject hud;
     public GameObject menu;
-
+    
     public int pesos;
     public int experience;
     public float playedTime;
@@ -139,19 +147,6 @@ public class GameManager : MonoBehaviour
     {
         ActivateGameObjects();
         player.transform.position = GameObject.Find("SpawnPoint").transform.position;
-        /*
-        PlayerData data = SaveSystem.LoadPlayer();
-        if (data.currentScene == SceneManager.GetActiveScene().name && PlayerPrefs.GetString("test") == "saved")
-        {
-            player.transform.position = new Vector3(data.position[0], data.position[1], data.position[2]);
-            PlayerPrefs.DeleteKey("test");
-        }       
-        else if (!PlayerPrefs.HasKey("test"))
-        {
-            player.transform.position = GameObject.Find("SpawnPoint").transform.position;
-        }
-        */
-
     }
 
     public void Respawn()
@@ -169,15 +164,15 @@ public class GameManager : MonoBehaviour
 
     public void LoadState(Scene s, LoadSceneMode mode)
     {
-        PlayerData data = SaveSystem.LoadPlayer();
+        /*PlayerData data = SaveSystem.LoadPlayer();
         SceneManager.sceneLoaded -= LoadState;
-
+        
         pesos = data.pesos;
         experience = data.experience;
         player.SetLevel(GetCurrentLevel());
         weapon.SetWeaponLevel(data.weaponLevel);
         player.hitpoint = data.health;
-        playedTime = data.playedTime;
+        playedTime = data.playedTime;*/
     }
 
 }
