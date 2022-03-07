@@ -27,7 +27,7 @@ public class PlayerData
         currentScene = SceneManager.GetActiveScene().name;
         currentScene = gameManager.activeScene();
         playedTime = gameManager.playedTime+gameManager.recentlyPlayedTime;
-
+        Debug.Log("playerdata meghívva");
         position = new float[3];
         position[0] = gameManager.player.transform.position.x;
         position[1] = gameManager.player.transform.position.y;

@@ -21,7 +21,7 @@ public class Login : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("name", nameField.text);
         form.AddField("password1", passwordField.text);
-        WWW www = new WWW("http://localhost/dungeongame/unitylogin.php", form);
+        WWW www = new WWW("http://192.168.31.20:8080/dungeongame/unitylogin.php", form);
         yield return www;     
         if (www.text[0] == '0')
         {
