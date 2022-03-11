@@ -10,8 +10,6 @@ public class GameManager : MonoBehaviour
     public GetDataFromDatabase dataFromDatabase;
     private void Awake()
     {
-        SceneManager.sceneLoaded += LoadState;
-
         if (GameManager.instance != null)
         {
             Destroy(gameObject);
@@ -22,6 +20,7 @@ public class GameManager : MonoBehaviour
             return;
             
         }
+
         
         instance = this;
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -34,19 +33,9 @@ public class GameManager : MonoBehaviour
     {
 
         DeactivateGameObjects();
-        pesos = dataFromDatabase.pesos;
-        experience = dataFromDatabase.experience;
-        player.SetLevel(GetCurrentLevel());
-        weapon.SetWeaponLevel(dataFromDatabase.weaponLevel);
-        player.hitpoint = dataFromDatabase.health;
-        playedTime = dataFromDatabase.playedTime;
-        Debug.Log(dataFromDatabase.currentScene);
-        AudioListener.volume = dataFromDatabase.musicVolume;
-        QualitySettings.SetQualityLevel(dataFromDatabase.gameQuality);
 
-        OnHitpointChange();
+        
     }
-
     public List<Sprite> playerSprites;
     public List<Sprite> weaponSprites;
     public List<int> weaponPrices;
@@ -58,7 +47,7 @@ public class GameManager : MonoBehaviour
     public Animator deathMenuAnim;
     public GameObject hud;
     public GameObject menu;
-    
+
     public int pesos;
     public int experience;
     public float playedTime;
@@ -150,9 +139,9 @@ public class GameManager : MonoBehaviour
     }
 
     public void Respawn()
-    {
+    {       
         deathMenuAnim.SetTrigger("hide");
-        SceneManager.LoadScene("StartMenu");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         player.Respawn();
     }
 
@@ -161,18 +150,16 @@ public class GameManager : MonoBehaviour
         return SceneManager.GetActiveScene().name;
     }
 
-
-    public void LoadState(Scene s, LoadSceneMode mode)
+    public void LoadState()
     {
-        /*PlayerData data = SaveSystem.LoadPlayer();
-        SceneManager.sceneLoaded -= LoadState;
-        
-        pesos = data.pesos;
-        experience = data.experience;
+        pesos = dataFromDatabase.pesos;
+        experience = dataFromDatabase.experience;
         player.SetLevel(GetCurrentLevel());
-        weapon.SetWeaponLevel(data.weaponLevel);
-        player.hitpoint = data.health;
-        playedTime = data.playedTime;*/
+        weapon.SetWeaponLevel(dataFromDatabase.weaponLevel);
+        player.hitpoint = dataFromDatabase.health;
+        playedTime = dataFromDatabase.playedTime;
+        AudioListener.volume = dataFromDatabase.musicVolume;
+        QualitySettings.SetQualityLevel(dataFromDatabase.gameQuality);
     }
 
 }

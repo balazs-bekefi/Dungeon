@@ -54,9 +54,16 @@ public class SaveToDatabase : MonoBehaviour
         form.AddField("gamequality", gamequality);
         form.AddField("musicvolume", musicVolume);
 
-        UnityWebRequest www = UnityWebRequest.Post("http://192.168.31.20:8080/DungeonGame/SavePlayerData.php", form);
+        UnityWebRequest www = UnityWebRequest.Post("https://adungeongame.000webhostapp.com/SavePlayerData.php", form);
         yield return www.SendWebRequest();
-        Debug.Log(www.downloadHandler.text);
-        
+        if (www.downloadHandler.text[0] == '0')
+        {
+            Debug.Log("Sikeresen feltöltve");
+        }
+        else
+        {
+            SaveSystem.SavePlayer(GameManager.instance);
+        }
+
     }
 }

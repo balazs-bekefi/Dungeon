@@ -16,7 +16,6 @@ public class Portal : Collidable
         if (coll.name == "Player" && Time.time - lastLoad > cooldown)
         {
             lastLoad = Time.time;
-            Debug.Log("asd");
             LoadLevel();
         }      
     }

@@ -10,9 +10,13 @@ public class LevelLoader : MonoBehaviour
     
     public void LoadLevel()
     {
+        GameManager.instance.LoadState();
         GameObject.Find("MainMenu").SetActive(false);
         GameObject.Find("Background").SetActive(false);
+        
+        GameManager.instance.OnHitpointChange();
         StartCoroutine(LoadAsynchronously(PlayerPrefs.GetString("mentes")));
+        
     }
 
     IEnumerator LoadAsynchronously (string sceneName)
@@ -27,5 +31,6 @@ public class LevelLoader : MonoBehaviour
 
             yield return null;
         }
+        
     }
 }

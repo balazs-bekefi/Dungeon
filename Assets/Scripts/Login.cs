@@ -23,7 +23,7 @@ public class Login : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("name", nameField.text);
         form.AddField("password1", passwordField.text);
-        WWW www =new WWW("http://192.168.31.20:8080/dungeongame/unitylogin.php", form);
+        WWW www =new WWW("https://adungeongame.000webhostapp.com/unitylogin.php", form);
         yield return www;
         if (www.text[0]=='0')
         {
@@ -34,7 +34,7 @@ public class Login : MonoBehaviour
         }
         else
         {
-            errorText.text = "Valami hiba történt, próbáld újra késöbb!";
+            errorText.text = "Valami hiba történt, próbáld újra késöbb!"+www.text;
         }
         
     }

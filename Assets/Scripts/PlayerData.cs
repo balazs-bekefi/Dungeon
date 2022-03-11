@@ -13,19 +13,22 @@ public class PlayerData
     public int gameQuality;
     public float musicVolume;
     public float[] position;
-    public string currentScene;
     public float playedTime;
+    public float fullplayedTime;
+    public string lastscene;
 
     public PlayerData (GameManager gameManager)
     {
-        health = gameManager.player.hitpoint;
-        pesos = gameManager.pesos;
-        experience = gameManager.experience;
-        weaponLevel = gameManager.weapon.weaponLevel;
-        gameQuality = PlayerPrefs.GetInt("gameQuality");
+        string id = PlayerPrefs.GetString("playerID");
+        pesos = GameManager.instance.pesos;
+        experience = GameManager.instance.experience;
+        weaponLevel = GameManager.instance.weapon.weaponLevel;
+        health = GameManager.instance.player.hitpoint;
+        fullplayedTime = GameManager.instance.playedTime + GameManager.instance.recentlyPlayedTime;
+        playedTime = fullplayedTime;
         musicVolume = PlayerPrefs.GetFloat("musicVolume");
-        currentScene = SceneManager.GetActiveScene().name;
-        playedTime = gameManager.playedTime+gameManager.recentlyPlayedTime;
+        gameQuality = PlayerPrefs.GetInt("gameQuality");
+        lastscene = SceneManager.GetActiveScene().name;
         position = new float[3];
         position[0] = gameManager.player.transform.position.x;
         position[1] = gameManager.player.transform.position.y;

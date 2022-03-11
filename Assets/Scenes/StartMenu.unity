@@ -908,7 +908,7 @@ PrefabInstance:
     - target: {fileID: 3925882223171881482, guid: ca6d20ea858c9c24e8f645db20242658, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1521654692}
     - target: {fileID: 3925882223171881482, guid: ca6d20ea858c9c24e8f645db20242658, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Respawn
@@ -1750,6 +1750,10 @@ PrefabInstance:
     - target: {fileID: 5393397327736509673, guid: 6f5345b5d1866bf4aa6ddb680fdd3a40, type: 3}
       propertyPath: hitpoint
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393397327736509673, guid: 6f5345b5d1866bf4aa6ddb680fdd3a40, type: 3}
+      propertyPath: joystick
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5393397327736509673, guid: 6f5345b5d1866bf4aa6ddb680fdd3a40, type: 3}
       propertyPath: maxHitpoint
@@ -3775,6 +3779,17 @@ MonoBehaviour:
   musicVolume: 0
   currentScene: 
   playedTime: 0
+--- !u!114 &1521654692 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4743294730822467404, guid: 75a358cada66dfc4abf73b12079fd8cb, type: 3}
+  m_PrefabInstance: {fileID: 1521654689}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521654690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 732c56d3d672f114a976668234fdd15b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1544176715
 GameObject:
   m_ObjectHideFlags: 0
@@ -4175,6 +4190,10 @@ PrefabInstance:
     - target: {fileID: 5961907348353674224, guid: 200bc259bbb8d26499e714582ace8595, type: 3}
       propertyPath: m_Name
       value: FloatingTextManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5961907348353674224, guid: 200bc259bbb8d26499e714582ace8595, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5961907348353674236, guid: 200bc259bbb8d26499e714582ace8595, type: 3}
       propertyPath: m_Pivot.x

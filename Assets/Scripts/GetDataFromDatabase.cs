@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
@@ -17,16 +18,32 @@ public class GetDataFromDatabase : MonoBehaviour
 
     public void Awake()
     {
-        StartCoroutine(getData());
+        string path = Application.persistentDataPath + "/player.fun";
+        if (File.Exists(path))
+        {
+            PlayerData data = SaveSystem.LoadPlayer();
+            health = data.health;
+            pesos = data.pesos;
+            experience = data.experience;
+            weaponLevel = data.weaponLevel;
+            gameQuality = data.gameQuality;
+            musicVolume = data.musicVolume;
+            currentScene = data.lastscene;
+            playedTime = data.playedTime;
+            File.Delete(path);
+        }
+        else
+        {
+            StartCoroutine(getData());
+        }
     }
 
     IEnumerator getData()
     {
         WWWForm form = new WWWForm();
         form.AddField("id", PlayerPrefs.GetString("playerID"));
-        UnityWebRequest www = UnityWebRequest.Post("http://192.168.31.20:8080/DungeonGame/GetDataFromDatabase.php",form);
+        UnityWebRequest www = UnityWebRequest.Post("https://adungeongame.000webhostapp.com/GetDataFromDatabase.php", form);
         yield return www.SendWebRequest();
-
         if (www.downloadHandler.text[0] == 'E')
         {
             Debug.Log(www.downloadHandler.text);

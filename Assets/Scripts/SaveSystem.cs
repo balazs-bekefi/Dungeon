@@ -26,13 +26,11 @@ public static class SaveSystem
 
             PlayerData data = formatter.Deserialize(stream) as PlayerData;
             stream.Close();
-
+            Debug.Log(data.pesos);
             return data;
         }
         else
         {
-            FileStream stream = new FileStream(path, FileMode.Create);
-            stream.Close();
             return null;
         }
     }
