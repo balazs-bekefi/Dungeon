@@ -62,11 +62,13 @@ public class GameManager : MonoBehaviour
     {
         hud.SetActive(true);
         floatingTextManager.gameObject.SetActive(true);
+
     }
 
     public void DeactivateGameObjects()
     {
         GameObject.Find("HUD").SetActive(false);
+        
         floatingTextManager.gameObject.SetActive(false);
     }
 

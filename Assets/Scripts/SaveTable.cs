@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class SaveTable : Collidable
 {
     public SaveToDatabase save;
     public string message;
-    public string savedMessage;
+    public GameObject text;
 
     private float cooldown = 4.0f;
     private float lastShout;
+    private float lastSave;
 
     protected override void Start()
     {
@@ -24,10 +27,19 @@ public class SaveTable : Collidable
             lastShout = Time.time;
             GameManager.instance.ShowText(message, 25, Color.blue, transform.position + new Vector3(0, 0.16f, 0), Vector3.zero, cooldown);
         }
-        if (coll.name == "Player" && Input.GetKeyDown(KeyCode.E))
+        if (coll.name == "Player" && Input.GetKeyDown(KeyCode.E) && Time.time - lastSave > cooldown)
         {
+            lastSave = Time.time;
             save.Save();
-            GameManager.instance.ShowText(savedMessage, 35, Color.green, new Vector3(0, 0.16f, 0), Vector3.zero, 3f);
+            StartCoroutine(ActivationRoutine());
+
         }
+    }
+    private IEnumerator ActivationRoutine()
+    {
+        Debug.Log("elkezdi a timert");
+        text.SetActive(true);
+        yield return new WaitForSeconds(3);
+        text.SetActive(false);
     }
 }

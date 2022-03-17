@@ -905,6 +905,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 994281783332876608, guid: ca6d20ea858c9c24e8f645db20242658, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 994281783332876608, guid: ca6d20ea858c9c24e8f645db20242658, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 994281783332876608, guid: ca6d20ea858c9c24e8f645db20242658, type: 3}
+      propertyPath: m_ReferencePixelsPerUnit
+      value: 98
+      objectReference: {fileID: 0}
     - target: {fileID: 3925882223171881482, guid: ca6d20ea858c9c24e8f645db20242658, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -936,6 +948,10 @@ PrefabInstance:
     - target: {fileID: 4526852501297183326, guid: ca6d20ea858c9c24e8f645db20242658, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: UpdateMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539905767696534256, guid: ca6d20ea858c9c24e8f645db20242658, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6394878655264193353, guid: ca6d20ea858c9c24e8f645db20242658, type: 3}
       propertyPath: m_Pivot.x
@@ -1094,11 +1110,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 98
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -1747,6 +1763,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5393397327736509672, guid: 6f5345b5d1866bf4aa6ddb680fdd3a40, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4869357254534750094, guid: b0face8faf84b7244842ab36c769ee22, type: 3}
     - target: {fileID: 5393397327736509673, guid: 6f5345b5d1866bf4aa6ddb680fdd3a40, type: 3}
       propertyPath: hitpoint
       value: 5
@@ -1765,11 +1785,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5393397327736509675, guid: 6f5345b5d1866bf4aa6ddb680fdd3a40, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.04
+      value: -7.944
       objectReference: {fileID: 0}
     - target: {fileID: 5393397327736509675, guid: 6f5345b5d1866bf4aa6ddb680fdd3a40, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.19
+      value: 10.092
       objectReference: {fileID: 0}
     - target: {fileID: 5393397327736509675, guid: 6f5345b5d1866bf4aa6ddb680fdd3a40, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1810,6 +1830,14 @@ PrefabInstance:
     - target: {fileID: 5393397327736509687, guid: 6f5345b5d1866bf4aa6ddb680fdd3a40, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393397327772510240, guid: 6f5345b5d1866bf4aa6ddb680fdd3a40, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0636
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393397327772510240, guid: 6f5345b5d1866bf4aa6ddb680fdd3a40, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0806
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f5345b5d1866bf4aa6ddb680fdd3a40, type: 3}
@@ -2115,12 +2143,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 98
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_ScreenMatchMode: 1
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -2630,6 +2658,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 847168573244440482, guid: 593927e46add8f648ae5d4e0c5423053, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 847168573244440482, guid: 593927e46add8f648ae5d4e0c5423053, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 847168573244440482, guid: 593927e46add8f648ae5d4e0c5423053, type: 3}
+      propertyPath: m_ReferencePixelsPerUnit
+      value: 98
+      objectReference: {fileID: 0}
     - target: {fileID: 847168573244440484, guid: 593927e46add8f648ae5d4e0c5423053, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2847,7 +2887,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1109146876}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.05, y: -2.14, z: 0}
+  m_LocalPosition: {x: -7.49, y: 10.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3252,6 +3292,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5393397327736509687, guid: 6f5345b5d1866bf4aa6ddb680fdd3a40, type: 3}
   m_PrefabInstance: {fileID: 635222471}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1236607274
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236607272}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 74c45f4a57cb53c4a87acdea4ea7349b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1236607277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4278,6 +4337,18 @@ PrefabInstance:
     - target: {fileID: 5961907348353674236, guid: 200bc259bbb8d26499e714582ace8595, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5961907348353674238, guid: 200bc259bbb8d26499e714582ace8595, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5961907348353674238, guid: 200bc259bbb8d26499e714582ace8595, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5961907348353674238, guid: 200bc259bbb8d26499e714582ace8595, type: 3}
+      propertyPath: m_ReferencePixelsPerUnit
+      value: 98
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 200bc259bbb8d26499e714582ace8595, type: 3}
