@@ -54,6 +54,7 @@ public class Enemy : Mover
         boxCollider.OverlapCollider(filter, hits);
         for (int i = 0; i < hits.Length; i++)
         {
+            
             if (hits[i] == null)
                 continue;
 
@@ -68,6 +69,7 @@ public class Enemy : Mover
 
     protected override void Death()
     {
+        GameManager.instance.recentlykilledEnemyes++;
         Destroy(gameObject);
         GameManager.instance.GrantXp(xpValue);
         GameManager.instance.ShowText("+" + xpValue + " xp", 30, Color.magenta, transform.position, Vector3.up * 40, 1.0f);

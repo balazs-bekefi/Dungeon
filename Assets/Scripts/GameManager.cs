@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public GetDataFromDatabase dataFromDatabase;
+
     private void Awake()
     {
         if (GameManager.instance != null)
@@ -18,24 +19,22 @@ public class GameManager : MonoBehaviour
             Destroy(hud);
             Destroy(floatingTextManager);
             return;
-            
+
         }
 
-        
+
         instance = this;
         SceneManager.sceneLoaded += OnSceneLoaded;
         AudioListener.volume = PlayerPrefs.GetFloat("musicVolume");
         QualitySettings.SetQualityLevel(PlayerPrefs.GetInt("gameQuality"));
-        
+
     }
-    
+
     private void Start()
     {
-
         DeactivateGameObjects();
-
-        
     }
+
     public List<Sprite> playerSprites;
     public List<Sprite> weaponSprites;
     public List<int> weaponPrices;
@@ -47,7 +46,12 @@ public class GameManager : MonoBehaviour
     public Animator deathMenuAnim;
     public GameObject hud;
     public GameObject menu;
-
+    public CharacterMenu characterMenu;
+    public int recentlykilledEnemyes;
+    public int killedEnemyes;
+    public int recentlyplayerDeaths;
+    public int playerDeaths;
+    public int skinId;
     public int pesos;
     public int experience;
     public float playedTime;
@@ -62,14 +66,13 @@ public class GameManager : MonoBehaviour
     {
         hud.SetActive(true);
         floatingTextManager.gameObject.SetActive(true);
-
     }
 
     public void DeactivateGameObjects()
     {
         GameObject.Find("HUD").SetActive(false);
-        
         floatingTextManager.gameObject.SetActive(false);
+
     }
 
     public bool TryUpgradeWeapon()
@@ -141,7 +144,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void Respawn()
-    {       
+    {
         deathMenuAnim.SetTrigger("hide");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         player.Respawn();
@@ -160,6 +163,11 @@ public class GameManager : MonoBehaviour
         weapon.SetWeaponLevel(dataFromDatabase.weaponLevel);
         player.hitpoint = dataFromDatabase.health;
         playedTime = dataFromDatabase.playedTime;
+        skinId = dataFromDatabase.skin;
+        player.SwapSprite(skinId);
+        characterMenu.characterSelectionSprite.sprite = playerSprites[skinId];
+        killedEnemyes = dataFromDatabase.killedEnemys;
+        playerDeaths = dataFromDatabase.playerDeaths;
         AudioListener.volume = dataFromDatabase.musicVolume;
         QualitySettings.SetQualityLevel(dataFromDatabase.gameQuality);
     }

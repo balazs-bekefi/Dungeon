@@ -15,6 +15,9 @@ public class GetDataFromDatabase : MonoBehaviour
     public float musicVolume;
     public string currentScene;
     public float playedTime;
+    public int skin;
+    public int killedEnemys;
+    public int playerDeaths;
 
     public void Awake()
     {
@@ -30,6 +33,9 @@ public class GetDataFromDatabase : MonoBehaviour
             musicVolume = data.musicVolume;
             currentScene = data.lastscene;
             playedTime = data.playedTime;
+            skin = data.skin;
+            killedEnemys = data.killedEnemys;
+            playerDeaths = data.playerDeaths;
             File.Delete(path);
         }
         else
@@ -59,6 +65,9 @@ public class GetDataFromDatabase : MonoBehaviour
             musicVolume = float.Parse(s.Split('-')[7]);
             currentScene = s.Split('-')[5];
             playedTime = float.Parse(s.Split('-')[4]);
+            skin = int.Parse(s.Split('-')[8]);
+            killedEnemys = int.Parse(s.Split('-')[9]);
+            playerDeaths = int.Parse(s.Split('-')[10]);
         }
     }
 }

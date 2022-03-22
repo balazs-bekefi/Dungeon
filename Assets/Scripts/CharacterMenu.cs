@@ -7,7 +7,7 @@ public class CharacterMenu : MonoBehaviour
 {
     public Text levelText, hitpointText, pesosText, upgradeCostText, xpText;
 
-    private int currentCharacterSelection = 0;
+    public int currentCharacterSelection;
     public Image characterSelectionSprite;
     public Image weaponSprite;
     public RectTransform xpBar;
@@ -32,6 +32,7 @@ public class CharacterMenu : MonoBehaviour
 
             OnSelectionChanged();
         }
+        GameManager.instance.skinId = currentCharacterSelection;
     }
 
     private void OnSelectionChanged()

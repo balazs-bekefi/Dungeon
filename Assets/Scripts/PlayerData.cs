@@ -16,6 +16,9 @@ public class PlayerData
     public float playedTime;
     public float fullplayedTime;
     public string lastscene;
+    public int skin;
+    public int killedEnemys;
+    public int playerDeaths;
 
     public PlayerData (GameManager gameManager)
     {
@@ -29,6 +32,9 @@ public class PlayerData
         musicVolume = PlayerPrefs.GetFloat("musicVolume");
         gameQuality = PlayerPrefs.GetInt("gameQuality");
         lastscene = SceneManager.GetActiveScene().name;
+        skin = GameManager.instance.skinId;
+        killedEnemys = GameManager.instance.killedEnemyes + GameManager.instance.recentlykilledEnemyes;
+        playerDeaths = GameManager.instance.playerDeaths + GameManager.instance.recentlyplayerDeaths;
         position = new float[3];
         position[0] = gameManager.player.transform.position.x;
         position[1] = gameManager.player.transform.position.y;

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,18 +26,25 @@ public class Login : MonoBehaviour
         form.AddField("password1", passwordField.text);
         WWW www =new WWW("https://adungeongame.000webhostapp.com/unitylogin.php", form);
         yield return www;
-        if (www.text[0]=='0')
+        try
         {
-            string[] getID = www.text.Split('/');
-            PlayerPrefs.SetString("playerID", getID[1]);
-            PlayerPrefs.SetString("playerName", nameField.text);
-            UnityEngine.SceneManagement.SceneManager.LoadScene("StartMenu");
+            if (www.text[0] == '0')
+            {
+                string[] getID = www.text.Split('/');
+                PlayerPrefs.SetString("playerID", getID[1]);
+                PlayerPrefs.SetString("playerName", nameField.text);
+                UnityEngine.SceneManagement.SceneManager.LoadScene("StartMenu");
+            }
+            else
+            {
+                errorText.text = "Valami hiba történt, próbáld újra késöbb!" + www.text;
+            }
         }
-        else
+        catch (IndexOutOfRangeException)
         {
-            errorText.text = "Valami hiba történt, próbáld újra késöbb!"+www.text;
+            Debug.Log(www.text);
+            errorText.text = "Valami hiba történt, próbáld újra késöbb!" + www.text;
         }
-        
     }
 
 

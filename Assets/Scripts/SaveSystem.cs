@@ -26,7 +26,6 @@ public static class SaveSystem
 
             PlayerData data = formatter.Deserialize(stream) as PlayerData;
             stream.Close();
-            Debug.Log(data.pesos);
             return data;
         }
         else

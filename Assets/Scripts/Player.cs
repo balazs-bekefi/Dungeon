@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : Mover
 {
+    public List<RuntimeAnimatorController> controller;
+    public Animator animator;
     private SpriteRenderer spriteRenderer;
     private bool isAlive = true;
 
@@ -17,13 +19,13 @@ public class Player : Mover
     {
         if (!isAlive)
             return;
-
         base.ReceiveDamage(dmg);
         GameManager.instance.OnHitpointChange();
     }
 
     protected override void Death()
     {
+        GameManager.instance.recentlyplayerDeaths++;
         isAlive = false;
         GameManager.instance.deathMenuAnim.SetTrigger("show");
     }
@@ -33,12 +35,16 @@ public class Player : Mover
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
         if (isAlive)
+        {
+            animator.SetFloat("Horizontal", x);
             UpdateMotor(new Vector3(x, y, 0));
+        }
     }
 
     public void SwapSprite(int skinId)
     {
         spriteRenderer.sprite = GameManager.instance.playerSprites[skinId];
+        animator.runtimeAnimatorController = controller[skinId] as RuntimeAnimatorController;
     }
 
     public void OnLevelUp()
