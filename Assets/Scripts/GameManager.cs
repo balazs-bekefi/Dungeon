@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour
 
         }
 
-
         instance = this;
         SceneManager.sceneLoaded += OnSceneLoaded;
         AudioListener.volume = PlayerPrefs.GetFloat("musicVolume");

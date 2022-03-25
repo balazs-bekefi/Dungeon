@@ -6,16 +6,16 @@ public class Enemy : Mover
 {
     public int xpValue = 1;
 
-    public float triggerLenght = 1;
-    public float chaseLength = 5;
-    private bool chasing;
-    private bool collidingWithPlayer;
-    private Transform playerTransform;
-    private Vector3 startingPosition;
+    public float triggerLenght = 2;
+    public float chaseLength = 4;
+    protected bool chasing;
+    protected bool collidingWithPlayer;
+    protected Transform playerTransform;
+    protected Vector3 startingPosition;
 
     public ContactFilter2D filter;
-    private BoxCollider2D hitbox;
-    private Collider2D[] hits = new Collider2D[10];
+    protected BoxCollider2D hitbox;
+    protected Collider2D[] hits = new Collider2D[10];
 
     protected override void Start()
     {
@@ -25,7 +25,7 @@ public class Enemy : Mover
         hitbox = transform.GetChild(0).GetComponent<BoxCollider2D>();
     }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         if (Vector3.Distance(playerTransform.position, startingPosition) < chaseLength)
         {
@@ -54,7 +54,7 @@ public class Enemy : Mover
         boxCollider.OverlapCollider(filter, hits);
         for (int i = 0; i < hits.Length; i++)
         {
-            
+
             if (hits[i] == null)
                 continue;
 

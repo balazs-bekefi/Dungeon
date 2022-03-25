@@ -72,11 +72,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 98
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -240,8 +240,7 @@ MonoBehaviour:
     maxNormalAngle: 0
   save: {fileID: 3799668802941938796}
   message: Press "E" to Save your game!
-  savedMessage: Game saved!
-  text: {fileID: 0}
+  text: {fileID: 5778751026300874350}
 --- !u!114 &3799668802941938796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,7 +270,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3992582455257160850
 RectTransform:
   m_ObjectHideFlags: 0
@@ -288,8 +287,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -558, y: 426}
-  m_SizeDelta: {x: 566.9952, y: 146.1684}
+  m_AnchoredPosition: {x: -208, y: 254}
+  m_SizeDelta: {x: 316.9739, y: 70.6985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2848305336948447516
 CanvasRenderer:
@@ -346,8 +345,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70
-  m_fontSizeBase: 70
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

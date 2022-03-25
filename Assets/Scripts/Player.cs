@@ -12,10 +12,10 @@ public class Player : Mover
     protected override void Start()
     {
         base.Start();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();     
     }
 
-    protected override void ReceiveDamage(Damage dmg)
+    public override void ReceiveDamage(Damage dmg)
     {
         if (!isAlive)
             return;

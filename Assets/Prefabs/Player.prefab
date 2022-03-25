@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5393397327736509687}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.742, y: 0.144, z: 0}
+  m_LocalPosition: {x: -7.49, y: 10.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5393397327772510240}
@@ -125,8 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca9bc76fb4fc61c4a9d680b740b5ef47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitpoint: 5
-  maxHitpoint: 4
+  hitpoint: 13
+  maxHitpoint: 13
   pushRecoverySpeed: 0.2
   ySpeed: 0.75
   xSpeed: 1
@@ -313,7 +313,7 @@ MonoBehaviour:
   - 3.5
   - 3.7
   - 4
-  weaponLevel: 0
+  weaponLevel: 6
 --- !u!95 &5393397327772510244
 Animator:
   serializedVersion: 3
