@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Wizard : Enemy
 {
-    public float stop = 2;
+    public float atttackRange = 2;
     private bool canAttack;
     private float lastAttack;
     public float attackDelay = 1.0f;
@@ -20,12 +20,12 @@ public class Wizard : Enemy
             if (Vector3.Distance(playerTransform.position, startingPosition) < triggerLenght)
                 chasing = true;
 
-            if (chasing && Vector3.Distance(playerTransform.position, transform.position) > stop)
+            if (chasing && Vector3.Distance(playerTransform.position, transform.position) > atttackRange)
             {
                 UpdateMotor((playerTransform.position - transform.position).normalized);
                 canAttack = false;
             }
-            else if (chasing && Vector3.Distance(playerTransform.position, transform.position) <= stop)
+            else if (chasing && Vector3.Distance(playerTransform.position, transform.position) <= atttackRange)
             {
                 float facing = playerTransform.position.x - transform.position.x;
                 if (facing < 0)

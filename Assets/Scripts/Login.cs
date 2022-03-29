@@ -37,13 +37,13 @@ public class Login : MonoBehaviour
             }
             else
             {
-                errorText.text = "Valami hiba történt, próbáld újra késöbb!" + www.text;
+                errorText.text = "Hiba történt, hibakód: " + www.text;
             }
         }
         catch (IndexOutOfRangeException)
         {
             Debug.Log(www.text);
-            errorText.text = "Valami hiba történt, próbáld újra késöbb!" + www.text;
+            errorText.text = "Hiba történt, hibakód: " + www.text;
         }
     }
 
