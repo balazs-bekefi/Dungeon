@@ -13,6 +13,7 @@ public class LevelLoader : MonoBehaviour
         GameManager.instance.LoadState();
         GameObject.Find("MainMenu").SetActive(false);
         GameObject.Find("Background").SetActive(false);
+        GameObject.Find("Title").SetActive(false);
         
         GameManager.instance.OnHitpointChange();
         StartCoroutine(LoadAsynchronously(PlayerPrefs.GetString("mentes")));

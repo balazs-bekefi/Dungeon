@@ -14,6 +14,8 @@ public class Weapon : Collidable
     private float cooldown = 0.5f;
     private float lastSwing;
 
+    public AudioSource hitSound;
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -35,7 +37,9 @@ public class Weapon : Collidable
             if (Time.time - lastSwing > cooldown)
             {
                 lastSwing = Time.time;
+                hitSound.Play();
                 Swing();
+                
             }
         }
     }

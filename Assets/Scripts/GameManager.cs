@@ -139,6 +139,7 @@ public class GameManager : MonoBehaviour
     public void OnSceneLoaded(Scene s, LoadSceneMode mode)
     {
         ActivateGameObjects();
+        AudioListener.volume = PlayerPrefs.GetFloat("musicVolume");
         player.transform.position = GameObject.Find("SpawnPoint").transform.position;
     }
 

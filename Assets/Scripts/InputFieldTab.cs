@@ -7,8 +7,14 @@ using UnityEngine.UI;
 public class InputFieldTab : MonoBehaviour
 {
     public List<InputField> fields;
-    public Button Start;
+    public Button startGame;
     int fieldIndexer=-1;
+
+    private void Start()
+    {
+        fieldIndexer++;
+        fields[fieldIndexer].Select();
+    }
 
     private void Update()
     {
@@ -27,7 +33,7 @@ public class InputFieldTab : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            Start.onClick.Invoke();
+            startGame.onClick.Invoke();
         }
     }
 }
