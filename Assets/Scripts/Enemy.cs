@@ -12,7 +12,6 @@ public class Enemy : Mover
     protected bool collidingWithPlayer;
     protected Transform playerTransform;
     protected Vector3 startingPosition;
-
     public ContactFilter2D filter;
     protected BoxCollider2D hitbox;
     protected Collider2D[] hits = new Collider2D[10];
@@ -54,7 +53,6 @@ public class Enemy : Mover
         boxCollider.OverlapCollider(filter, hits);
         for (int i = 0; i < hits.Length; i++)
         {
-
             if (hits[i] == null)
                 continue;
 
@@ -62,7 +60,6 @@ public class Enemy : Mover
             {
                 collidingWithPlayer = true;
             }
-
             hits[i] = null;
         }
     }
@@ -72,6 +69,13 @@ public class Enemy : Mover
         GameManager.instance.recentlykilledEnemyes++;
         Destroy(gameObject);
         GameManager.instance.GrantXp(xpValue);
-        GameManager.instance.ShowText("+" + xpValue + " xp", 30, Color.magenta, transform.position, Vector3.up * 40, 1.0f);
+        GameManager.instance.ShowText("+" + xpValue + " xp", 34, Color.magenta, transform.position, Vector3.up * 40, 1.0f);
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, triggerLenght);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, chaseLength);
     }
 }

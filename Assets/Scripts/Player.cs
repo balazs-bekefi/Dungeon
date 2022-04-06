@@ -12,7 +12,7 @@ public class Player : Mover
     protected override void Start()
     {
         base.Start();
-        spriteRenderer = GetComponent<SpriteRenderer>();     
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public override void ReceiveDamage(Damage dmg)
@@ -49,9 +49,9 @@ public class Player : Mover
 
     public void OnLevelUp()
     {
-        maxHitpoint++;
+        maxHitpoint=maxHitpoint+2;
         hitpoint = maxHitpoint;
-        GameManager.instance.ShowText("Level " + GameManager.instance.GetCurrentLevel() + " reached!", 23, Color.cyan, transform.position, Vector3.up * 10, 1.5f);
+        GameManager.instance.ShowText("Elérted a " + GameManager.instance.GetCurrentLevel(GameManager.instance.experience, GameManager.instance.xpTable) + ". szintet!", 28, Color.cyan, transform.position, Vector3.up * 12, 1.5f);
     }
 
     public void SetLevel(int level)
@@ -71,7 +71,9 @@ public class Player : Mover
         {
             hitpoint = hitpoint + healingAmount;
             GameManager.instance.OnHitpointChange();
-            GameManager.instance.ShowText("+" + healingAmount.ToString() + "hp", 25, Color.green, transform.position, Vector3.up * 30, 1.0f);
+            GameManager.instance.ShowText("+" + healingAmount.ToString() + " életerõ", 25, Color.green, transform.position, Vector3.up * 30, 1.0f);
+            if (hitpoint > maxHitpoint)
+                hitpoint = maxHitpoint;
         }
     }
 

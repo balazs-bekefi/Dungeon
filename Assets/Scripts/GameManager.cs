@@ -74,12 +74,12 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public bool TryUpgradeWeapon()
+    public bool TryUpgradeWeapon(int money,List<int> weaponPrices,Weapon weapon)
     {
         if (weaponPrices.Count <= weapon.weaponLevel)
             return false;
 
-        if (pesos >= weaponPrices[weapon.weaponLevel])
+        if (money >= weaponPrices[weapon.weaponLevel])
         {
             pesos -= weaponPrices[weapon.weaponLevel];
             weapon.UpgradeWeapon();
@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
         hitpointBar.localScale = new Vector3(1, ratio, 1);
     }
 
-    public int GetCurrentLevel()
+    public int GetCurrentLevel(int experience,List<int> xpTable)
     {
         int r = 0;
         int add = 0;
@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
         return r;
     }
 
-    public int GetXpToLevel(int level)
+    public int GetXpToLevel(int level,List<int> xpTable)
     {
         int r = 0;
         int xp = 0;
@@ -124,9 +124,9 @@ public class GameManager : MonoBehaviour
 
     public void GrantXp(int xp)
     {
-        int currLevel = GetCurrentLevel();
+        int currLevel = GetCurrentLevel(GameManager.instance.experience, GameManager.instance.xpTable);
         experience += xp;
-        if (currLevel < GetCurrentLevel())
+        if (currLevel < GetCurrentLevel(GameManager.instance.experience, GameManager.instance.xpTable))
             OnLevelUp();
     }
 
@@ -159,7 +159,7 @@ public class GameManager : MonoBehaviour
     {
         pesos = dataFromDatabase.pesos;
         experience = dataFromDatabase.experience;
-        player.SetLevel(GetCurrentLevel());
+        player.SetLevel(GetCurrentLevel(GameManager.instance.experience, GameManager.instance.xpTable));
         weapon.SetWeaponLevel(dataFromDatabase.weaponLevel);
         player.hitpoint = dataFromDatabase.health;
         playedTime = dataFromDatabase.playedTime;

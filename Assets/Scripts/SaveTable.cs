@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class SaveTable : Collidable
 {
     public SaveToDatabase save;
-    public string message;
+    private string message="Nyomj 'E' betût hogy elmentsd a játékállásod!";
     public GameObject text;
 
     private float cooldown = 4.0f;
@@ -25,7 +25,7 @@ public class SaveTable : Collidable
         if (coll.name == "Player" && Time.time-lastShout>cooldown)
         {
             lastShout = Time.time;
-            GameManager.instance.ShowText(message, 25, Color.blue, transform.position + new Vector3(0, 0.16f, 0), Vector3.zero, cooldown);
+            GameManager.instance.ShowText(message, 25, Color.cyan, transform.position + new Vector3(0, 0.16f, 0), Vector3.zero, cooldown);
         }
         if (coll.name == "Player" && Input.GetKeyDown(KeyCode.E) && Time.time - lastSave > cooldown)
         {
@@ -37,7 +37,6 @@ public class SaveTable : Collidable
     }
     private IEnumerator ActivationRoutine()
     {
-        Debug.Log("elkezdi a timert");
         text.SetActive(true);
         yield return new WaitForSeconds(3);
         text.SetActive(false);

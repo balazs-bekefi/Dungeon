@@ -9,6 +9,7 @@ public class FloatingText
     public Vector3 motion;
     public float duration;
     public float lastShown;
+    public RectTransform transform;
 
     public void Show()
     {
@@ -28,7 +29,6 @@ public class FloatingText
 
         if (Time.time - lastShown > duration)
             Hide();
-
         go.transform.position += motion * Time.deltaTime;
     }
 }

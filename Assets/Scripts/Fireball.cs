@@ -6,11 +6,13 @@ public class Fireball : EnemyHitbox
 {
     public float bulletSpeed;
     public float lifetime;
+    public AudioSource fireballSound;
 
     protected override void Start()
     {
         base.Start();
         Invoke("DestroyProjectile", lifetime);
+        fireballSound.Play();
     }
 
     protected override void Update()

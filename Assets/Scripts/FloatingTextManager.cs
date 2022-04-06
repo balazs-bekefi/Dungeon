@@ -24,7 +24,6 @@ public class FloatingTextManager : MonoBehaviour
         floatingText.txt.text = msg;
         floatingText.txt.fontSize = fontSize;
         floatingText.txt.color = color;
-
         floatingText.go.transform.position = Camera.main.WorldToScreenPoint(position);
         floatingText.motion = motion;
         floatingText.duration = duration;
@@ -43,8 +42,8 @@ public class FloatingTextManager : MonoBehaviour
             txt.go = Instantiate(textPrefab);
             txt.go.transform.SetParent(textContainer.transform);
             txt.txt = txt.go.GetComponent<Text>();
-
             floatingTexts.Add(txt);
+            txt.go.transform.localScale = new Vector3(1f, 1.0f, 1.0f);
         }
         return txt;
     }

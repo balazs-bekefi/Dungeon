@@ -287,8 +287,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: 2.5, y: 0}
+  m_SizeDelta: {x: -5, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3120995969170091784
 GameObject:
@@ -604,8 +604,8 @@ MonoBehaviour:
   ySpeed: 0.75
   xSpeed: 1
   xpValue: 1
-  triggerLenght: 1
-  chaseLength: 2.5
+  triggerLenght: 0.8
+  chaseLength: 1.2
   filter:
     useTriggers: 0
     useLayerMask: 0
@@ -620,8 +620,8 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  atttackRange: 2
-  attackDelay: 1
+  atttackRange: 0.9
+  attackDelay: 1.5
   animator: {fileID: 3961791977496424107}
   projectile: {fileID: 3592792256558759976, guid: baa29830d4aa38948bcaed09a99a1f5b, type: 3}
   shotPoint: {fileID: 1898241270}

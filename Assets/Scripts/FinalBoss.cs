@@ -65,4 +65,10 @@ public class FinalBoss : Enemy
             }
         }
     }
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, triggerLenght);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, chaseLength);
+    }
 }

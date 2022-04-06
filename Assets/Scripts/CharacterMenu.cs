@@ -11,7 +11,7 @@ public class CharacterMenu : MonoBehaviour
     public Image characterSelectionSprite;
     public Image weaponSprite;
     public RectTransform xpBar;
-
+    public Animator anim;
     public void OnArrowClick(bool right)
     {
         if (right)
@@ -43,7 +43,7 @@ public class CharacterMenu : MonoBehaviour
 
     public void OnUpgradeClick()
     {
-        if (GameManager.instance.TryUpgradeWeapon())
+        if (GameManager.instance.TryUpgradeWeapon(GameManager.instance.pesos,GameManager.instance.weaponPrices,GameManager.instance.weapon))
             UpdateMenu();
     }
 
@@ -57,18 +57,18 @@ public class CharacterMenu : MonoBehaviour
 
         hitpointText.text = GameManager.instance.player.hitpoint.ToString() + " / " + GameManager.instance.player.maxHitpoint.ToString();
         pesosText.text = GameManager.instance.pesos.ToString();
-        levelText.text = GameManager.instance.GetCurrentLevel().ToString();
+        levelText.text = GameManager.instance.GetCurrentLevel(GameManager.instance.experience,GameManager.instance.xpTable).ToString();
 
-        int currLevel = GameManager.instance.GetCurrentLevel();
+        int currLevel = GameManager.instance.GetCurrentLevel(GameManager.instance.experience, GameManager.instance.xpTable);
         if (currLevel == GameManager.instance.xpTable.Count)
         {
-            xpText.text = GameManager.instance.experience.ToString() + " total experience points";
+            xpText.text = GameManager.instance.experience.ToString() + " összes tapasztalati pont";
             xpBar.localScale = Vector3.one;
         }
         else
         {
-            int prevLevelXp = GameManager.instance.GetXpToLevel(currLevel - 1);
-            int currLevelXp = GameManager.instance.GetXpToLevel(currLevel);
+            int prevLevelXp = GameManager.instance.GetXpToLevel(currLevel - 1,GameManager.instance.xpTable);
+            int currLevelXp = GameManager.instance.GetXpToLevel(currLevel, GameManager.instance.xpTable);
 
             int diff = currLevelXp - prevLevelXp;
             int currXpIntoLevel = GameManager.instance.experience - prevLevelXp;
@@ -77,5 +77,11 @@ public class CharacterMenu : MonoBehaviour
             xpBar.localScale = new Vector3(completionRatio, 1, 1);
             xpText.text = currXpIntoLevel.ToString() + " / " + diff;
         }
+    }
+
+    public void MenuShow()
+    {
+        anim.SetTrigger("show");
+        Debug.Log("kiirja");
     }
 }

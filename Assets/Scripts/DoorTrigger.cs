@@ -9,11 +9,13 @@ public class DoorTrigger : Collidable
 
     public SpriteRenderer spriteRenderer;
 
+    public bool door=false;
+
     protected override void OnCollide(Collider2D coll)
     {
-        if (coll.name == "Player" && DoorEventTrigger != null)
+        if (coll.name == "Player" && door == false)
         {
-            DoorEventTrigger?.Invoke(this, EventArgs.Empty);
+            door = true;
         }
     }
 }
