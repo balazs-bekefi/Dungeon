@@ -81,7 +81,6 @@ public class CharacterMenu : MonoBehaviour
 
     public void MenuShow()
     {
-        anim.SetTrigger("show");
-        Debug.Log("kiirja");
+        anim.SetTrigger("show");       
     }
 }

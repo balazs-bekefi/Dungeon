@@ -935,7 +935,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4526852501297183326, guid: ca6d20ea858c9c24e8f645db20242658, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4526852501297183326, guid: ca6d20ea858c9c24e8f645db20242658, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -1126,6 +1126,52 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6784242638570409246, guid: ca6d20ea858c9c24e8f645db20242658, type: 3}
   m_PrefabInstance: {fileID: 302742246}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &302742250 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7702550227617825204, guid: ca6d20ea858c9c24e8f645db20242658, type: 3}
+  m_PrefabInstance: {fileID: 302742246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &302742251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302742250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1045872925}
+          m_TargetAssemblyTypeName: CharacterMenu, Scripts
+          m_MethodName: MenuShow
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1045872925}
+          m_TargetAssemblyTypeName: CharacterMenu, Scripts
+          m_MethodName: UpdateMenu
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &355927983
 GameObject:
   m_ObjectHideFlags: 0

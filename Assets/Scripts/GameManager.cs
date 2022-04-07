@@ -74,6 +74,7 @@ public class GameManager : MonoBehaviour
 
     }
 
+
     public bool TryUpgradeWeapon(int money,List<int> weaponPrices,Weapon weapon)
     {
         if (weaponPrices.Count <= weapon.weaponLevel)
