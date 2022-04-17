@@ -71,7 +71,7 @@ public class Player : Mover
         {
             hitpoint = hitpoint + healingAmount;
             GameManager.instance.OnHitpointChange();
-            GameManager.instance.ShowText("+" + healingAmount.ToString() + " életerõ", 25, Color.green, transform.position, Vector3.up * 30, 1.0f);
+            GameManager.instance.ShowText("+" + healingAmount.ToString() + "  életerõ", 25, Color.green, transform.position, Vector3.up * 30, 1.0f);
             if (hitpoint > maxHitpoint)
                 hitpoint = maxHitpoint;
         }

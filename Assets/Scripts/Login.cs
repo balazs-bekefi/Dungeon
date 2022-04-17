@@ -42,8 +42,7 @@ public class Login : MonoBehaviour
         }
         catch (IndexOutOfRangeException)
         {
-            Debug.Log(www.text);
-            errorText.text = "Hiba történt, hibakód: " + www.text;
+            errorText.text = "Hiba történt, hibakód: 3: Hálózati probléma";
         }
     }
 
