@@ -1,6 +1,12 @@
 -A telepítőkben a végleges telepítőfileok találhatók Android és Windows eszközre.
 https://github.com/balazs-bekefi/Dungeon/tree/main/Telepitok
 
+-A CypressTeszt forrésfileja.
+https://github.com/balazs-bekefi/Dungeon/blob/main/IntegrationTest.zip
+
+-Az Database forráskódja.
+https://github.com/balazs-bekefi/Dungeon/blob/main/DungeonGameSqlDatabase.sql
+
 -A dokumentáció a DungeonGame dokumentációt megnyitva olvasható.
 https://github.com/balazs-bekefi/Dungeon/blob/main/DungeonGame%20dokument%C3%A1ci%C3%B3.pdf
 
